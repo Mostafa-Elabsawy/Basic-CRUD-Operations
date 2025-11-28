@@ -11,6 +11,9 @@ export class ProductsAPi {
   getProducts() {
     return this.http.get<{ message: string; Products: Product[] }>(this.baseUrl);
   }
+  addProduct(data: Partial<Product>) {
+    return this.http.post(this.baseUrl, data);
+  }
   updateProduct(id: string, data: Partial<Product>) {
     data._id = id;
     const requestBody={id, ...data};
